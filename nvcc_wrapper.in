@@ -18,7 +18,12 @@ default_arch="sm_35"
 #
 # The default C++ compiler.
 #
-host_compiler=@KOKKOS_CXX@
+
+if [[ -z "${KOKKOS_CXX}" ]]; then
+  host_compiler=@KOKKOS_CXX@
+else
+  host_compiler=${KOKKOS_CXX}
+fi
 
 #
 # Internal variables
@@ -68,7 +73,7 @@ error_code=0
 dry_run=0
 
 # Skip NVCC compilation and use host compiler directly
-host_only=1
+host_only=0
 host_only_args=""
 
 bad_std_flag=""
