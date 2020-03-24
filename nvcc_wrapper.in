@@ -136,7 +136,6 @@ do
   #handle source files to be compiled as cuda files
   *.cpp|*.cxx|*.cc|*.C|*.c++|*.cu)
     cpp_files="$cpp_files $1"
-    cat $1
     ;;
    # Ensure we only have one optimization flag because NVCC doesn't allow muliple
   -O*)
